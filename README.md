@@ -1,3 +1,3 @@
-# Analog
+# Open VLSI
 
-Repositório focado para os trabalhos do laboratório XMEN na parte de analógico
+This is a repository that contains the dockerfile to build a docker image which have the necessary open source tools to VLSI Design.
