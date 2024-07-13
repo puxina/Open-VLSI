@@ -1,0 +1,9 @@
+ngspice
+klayout
+kicad
+kicad-library
+kicad-library-3d
+iverilog
+systemc
+verilator
+gtkwave

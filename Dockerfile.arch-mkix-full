@@ -1,0 +1,50 @@
+# Dockerfile of custom ArchLinux
+FROM archlinux:latest
+# Custom installation packages
+# Author: Ícaro Meneses Ferreira de Santana
+# Email: icaro.santana.dev@hotmail.com
+ENV TERM=xterm-256color
+ENV DISPLAY=:0.0
+
+# Set labels for metadata
+LABEL maintainer="Ícaro Meneses <icaro.santana.dev@hotmail.com>"
+LABEL description="Custom Arch Linux image with VLSI Design Tools (express install)."
+LABEL version="1.0"
+
+# Location of container setup files
+RUN mkdir -p /root/files
+WORKDIR /root/files
+
+# Copy setup files from host to container
+COPY ./system_packages.txt .
+COPY ./specific_packages.txt .
+COPY ./ohmyzsh_auto_install.sh .
+COPY ./tools_install.sh .
+COPY ./magic_install.sh .
+
+ENV TOOLS_DOWNLOADS=/root/tools
+RUN mkdir -p ${TOOLS_DOWNLOADS}
+RUN echo $TOOLS_DOWNLOADS
+
+# Substitute the pacman.conf
+COPY ./pacman.conf /etc/
+COPY ./vimrc /root/.vimrc
+
+RUN pacman-key --init
+RUN pacman -Syu --noconfirm
+RUN xargs -a system_packages.txt pacman -S --noconfirm
+RUN xargs -a specific_packages.txt pacman -S --noconfirm
+
+# Update the local cache of TL;DR pages
+RUN tldr --update
+
+RUN sh ./ohmyzsh_auto_install.sh
+RUN chsh -s $(which zsh)
+
+ENV EDITOR=vim
+
+# Make installation of VLSI Tools
+RUN sh ./tools_install.sh
+
+ENV LANG=C.UTF-8
+CMD ["/usr/bin/zsh"]
