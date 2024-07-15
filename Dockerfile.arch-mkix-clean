@@ -38,10 +38,12 @@ RUN xargs -a specific_packages.txt pacman -S --noconfirm
 # Update the local cache of TL;DR pages
 RUN tldr --update
 
+# Install and configure Zsh plugins
 RUN sh ./ohmyzsh_auto_install.sh
 RUN chsh -s $(which zsh)
 
-ENV EDITOR=vim
+RUN echo "This is a clean install of Open-VLSI container." \
+"Remember to install the VLSI Tools."
 
 ENV LANG=C.UTF-8
 CMD ["/usr/bin/zsh"]
