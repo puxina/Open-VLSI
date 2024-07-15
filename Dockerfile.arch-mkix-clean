@@ -12,7 +12,8 @@ LABEL description="Custom Arch Linux image essential packages (clean install)."
 LABEL version="1.0"
 
 # Location of container setup files
-RUN mkdir -p /root/files
+ENV MAIN_FILES=/root/files
+RUN mkdir -p ${MAIN_FILES}
 
 # Change directory which the container is working
 WORKDIR /root/files
