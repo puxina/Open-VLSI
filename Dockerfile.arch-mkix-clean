@@ -13,6 +13,8 @@ LABEL version="1.0"
 
 # Location of container setup files
 RUN mkdir -p /root/files
+
+# Change directory which the container is working
 WORKDIR /root/files
 
 # Copy setup files from host to container
@@ -21,6 +23,7 @@ COPY ./specific_packages.txt .
 COPY ./ohmyzsh_auto_install.sh .
 COPY ./tools_install.sh .
 COPY ./magic_install.sh .
+COPY ./env_setup.sh .
 
 ENV TOOLS_DOWNLOADS=/root/tools
 RUN mkdir -p ${TOOLS_DOWNLOADS}
@@ -41,6 +44,8 @@ RUN tldr --update
 # Install and configure Zsh plugins
 RUN sh ./ohmyzsh_auto_install.sh
 RUN chsh -s $(which zsh)
+
+ENV EDITOR=vim
 
 RUN echo "This is a clean install of Open-VLSI container." \
 "Remember to install the VLSI Tools."
