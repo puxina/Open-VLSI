@@ -50,45 +50,15 @@ git clone https://github.com/RTimothyEdwards/magic.git ${TOOLS_DOWNLOADS}/magic_
 make -j${nproc} && make -j${nproc} install
 cd ${LAST_PWD}
 
-# Open PDKs (last install) (TODO)
+# Open PDKs (last install)
 git clone https://github.com/RTimothyEdwards/open_pdks.git ${TOOLS_DOWNLOADS}/open_pdks_git && \
 	cd ${TOOLS_DOWNLOADS}/open_pdks_git
 # Many enable options on ./configure
-./configure --enable-alpha-sky130 \
-            --enable-gf180mcu-pdk \
-            --enable-io-gf180mcu \
-            --enable-io-sky130 \
-            --enable-irsim \
-            --enable-klayout \
-            --enable-klayout-sky130 \
-            --enable-magic \
-            --enable-netgen \
-            --enable-openlane \
-            --enable-option-checking \
-            --enable-osu-sc-gf180mcu \
-            --enable-osu-t12-sky130 \
-            --enable-osu-t15-sky130 \
-            --enable-osu-t18-sky130 \
-            --enable-precheck-sky130 \
-            --enable-primitive-gf180mcu \
-            --enable-primitive-sky130 \
-            --enable-qflow \
-            --enable-reram-sky130 \
-            --enable-sc-7t5v0-gf180mcu \
-            --enable-sc-9t5v0-gf180mcu \
-            --enable-sc-hd-sky130 \
-            --enable-sc-hdll-sky130 \
-            --enable-sc-hs-sky130 \
-            --enable-sc-hvl-sky130 \
-            --enable-sc-lp-sky130 \
-            --enable-sc-ls-sky130 \
-            --enable-sc-ms-sky130 \
-            --enable-sram-gf180mcu \
-            --enable-sram-sky130 \
-            --enable-sram-space-sky130 \
-            --enable-verification-gf180mcu \
-            --enable-xcircuit \
-            --enable-xschem \
-            --enable-xschem-sky130
+./configure --enable-sky130-pdk \
+			--enable-sram-sky130 \
+			--enable-sram-space-sky130
 make -j${nproc} && make -j${nproc} install
 cd ${LAST_PWD}
+
+# Set Open PDKs path environment variables
+sh ./tools_install.sh
