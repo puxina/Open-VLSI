@@ -3,6 +3,7 @@ zsh
 tldr
 tree
 man-db
+xdg-user-dirs
 guile
 guile2.2
 plotutils

@@ -41,6 +41,9 @@ RUN xargs -a specific_packages.txt pacman -S --noconfirm
 # Update the local cache of TL;DR pages
 RUN tldr --update
 
+# Update user directories
+RUN xdg-user-dirs-update
+
 # Install and configure Zsh plugins
 RUN sh ./ohmyzsh_auto_install.sh
 RUN chsh -s $(which zsh)
@@ -48,7 +51,7 @@ RUN chsh -s $(which zsh)
 # Make installation of VLSI Tools
 RUN sh ./tools_install.sh
 
-ENV EDITO=vim
+ENV EDITOR=vim
 
 ENV LANG=C.UTF-8
 CMD ["/usr/bin/zsh"]

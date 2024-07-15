@@ -45,6 +45,9 @@ RUN tldr --update
 RUN sh ./ohmyzsh_auto_install.sh
 RUN chsh -s $(which zsh)
 
+# Update user directories
+RUN xdg-user-dirs-update
+
 ENV EDITOR=vim
 
 RUN echo "This is a clean install of Open-VLSI container." \
