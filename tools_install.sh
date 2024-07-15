@@ -61,4 +61,4 @@ make -j${nproc} && make -j${nproc} install
 cd ${LAST_PWD}
 
 # Set Open PDKs path environment variables
-sh ./tools_install.sh
+sh ./env_setup.sh
