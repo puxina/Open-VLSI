@@ -73,6 +73,6 @@ Then, just use the container.
 In case of choosing the clean image build, remember to install the OpenPDKs with the `pdks_install.sh` script:
 
 ```
-cd ${MAIN_INSTALL_FILES}
+cd ${MAIN_FILES}
 sh ./pdks_install.sh
 ```
