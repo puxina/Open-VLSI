@@ -2,7 +2,7 @@
 
 This is a repository that contains the dockerfile to build a docker image which have the necessary open source tools to VLSI Design.
 
-## 1 Build Requirements
+## 1. Build Requirements
 
 To build any of two modes of the docker image, only the docker is required. To do a clean install of docker on your machine, look on the [Official Docker Installation Guide](https://docs.docker.com/engine/install/). Other basic requirement is `bash` to execute the scripts.
 
@@ -42,7 +42,7 @@ cd Open-VLSI
 sh ./build_arch-mkIX.sh full
 ```
 
-- Alternatively, to build the clean image (It will install the base image with some system packages, without installing the VLSI design tools.):
+- Alternatively, to build the clean image (It will install the base image with some system packages, without installing OpenPDKs.):
 
 ```
 sh ./build_arch-mkIX.sh clean
