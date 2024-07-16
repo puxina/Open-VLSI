@@ -10,5 +10,3 @@ git clone https://github.com/RTimothyEdwards/open_pdks.git ${TOOLS_DOWNLOADS}/op
 make -j${nproc} && make -j${nproc} install
 cd ${LAST_PWD}
 
-# Set environment variable for PDKs location
-export PDK_ROOT=/usr/local/share/pdk/

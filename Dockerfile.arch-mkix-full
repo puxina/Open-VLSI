@@ -57,5 +57,8 @@ RUN sh ./tools_install.sh
 # Make installation of PDKs
 RUN sh ./pdks_install.sh
 
+# Set environment variable for PDKs location
+ENV PDK_ROOT=/usr/local/share/pdk/
+
 ENV LANG=C.UTF-8
 CMD ["/usr/bin/zsh"]
