@@ -47,6 +47,6 @@ cd ${LAST_PWD}
 # Magic
 git clone https://github.com/RTimothyEdwards/magic.git ${TOOLS_DOWNLOADS}/magic_git && \
 	cd ${TOOLS_DOWNLOADS}/magic_git && ./configure
-make -j${nproc} && make -j${nproc} install
+make && make install
 cd ${LAST_PWD}
 

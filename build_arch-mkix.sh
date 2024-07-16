@@ -8,6 +8,7 @@ fi
 case $1 in
     clean)
         DOCKERFILE="./Dockerfile.arch-mkix-clean"
+		echo "This is a clean image of Open-VLSI (only contains the tools). Remember to install the PDKs."
         ;;
     full)
         DOCKERFILE="./Dockerfile.arch-mkix-full"

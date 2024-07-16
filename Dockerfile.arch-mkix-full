@@ -8,7 +8,7 @@ ENV DISPLAY=:0.0
 
 # Set labels for metadata
 LABEL maintainer="Ícaro Meneses <icaro.santana.dev@hotmail.com>"
-LABEL description="Custom Arch Linux image with VLSI Design Tools (express install)."
+LABEL description="Custom Arch Linux image with VLSI Design Tools (full install)."
 LABEL version="1.0"
 
 # Location of container setup files
@@ -25,7 +25,6 @@ COPY ./ohmyzsh_auto_install.sh .
 COPY ./tools_install.sh .
 COPY ./magic_install.sh .
 COPY ./pdks_install.sh .
-COPY ./env_setup.sh .
 
 ENV TOOLS_DOWNLOADS=/root/tools
 RUN mkdir -p ${TOOLS_DOWNLOADS}
@@ -40,6 +39,8 @@ RUN pacman -Syu --noconfirm
 RUN xargs -a system_packages.txt pacman -S --noconfirm
 RUN xargs -a specific_packages.txt pacman -S --noconfirm
 
+ENV EDITOR=vim
+
 # Update the local cache of TL;DR pages
 RUN tldr --update
 
@@ -53,7 +54,8 @@ RUN chsh -s $(which zsh)
 # Make installation of VLSI Tools
 RUN sh ./tools_install.sh
 
-ENV EDITOR=vim
+# Make installation of PDKs
+RUN sh ./pdks_install.sh
 
 ENV LANG=C.UTF-8
 CMD ["/usr/bin/zsh"]

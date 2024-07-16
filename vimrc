@@ -4,13 +4,11 @@ set encoding=utf-8
 let &t_ut=''
 
 set number				
-set relativenumber	
+"set relativenumber	
 set linebreak			
 set showbreak=>>>>		
 set textwidth=69		
 set showmatch			
-set errorbells			
-set visualbell			
 set mouse=a
 
 set hlsearch			
