@@ -24,6 +24,7 @@ COPY ./specific_packages.txt .
 COPY ./ohmyzsh_auto_install.sh .
 COPY ./tools_install.sh .
 COPY ./magic_install.sh .
+COPY ./pdks_install.sh .
 COPY ./env_setup.sh .
 
 ENV TOOLS_DOWNLOADS=/root/tools

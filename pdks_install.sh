@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Open PDKs (last install)
 git clone https://github.com/RTimothyEdwards/open_pdks.git ${TOOLS_DOWNLOADS}/open_pdks_git && \
 	cd ${TOOLS_DOWNLOADS}/open_pdks_git

@@ -1,5 +1,6 @@
 bash-completion
 zsh
+tmux
 tldr
 tree
 man-db
