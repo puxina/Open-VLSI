@@ -4,6 +4,8 @@ tldr
 tree
 man-db
 xdg-user-dirs
+xorg-mkfontscale
+xterm
 guile
 guile2.2
 plotutils

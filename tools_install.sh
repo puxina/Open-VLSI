@@ -50,15 +50,3 @@ git clone https://github.com/RTimothyEdwards/magic.git ${TOOLS_DOWNLOADS}/magic_
 make -j${nproc} && make -j${nproc} install
 cd ${LAST_PWD}
 
-# Open PDKs (last install)
-git clone https://github.com/RTimothyEdwards/open_pdks.git ${TOOLS_DOWNLOADS}/open_pdks_git && \
-	cd ${TOOLS_DOWNLOADS}/open_pdks_git
-# Many enable options on ./configure
-./configure --enable-sky130-pdk \
-			--enable-sram-sky130 \
-			--enable-sram-space-sky130
-make -j${nproc} && make -j${nproc} install
-cd ${LAST_PWD}
-
-# Set Open PDKs path environment variables
-sh ${MAIN_FILES}/env_setup.sh
