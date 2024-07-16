@@ -70,9 +70,9 @@ Then, just use the container.
 
 ## 5. Some notes
 
-In case of choosing the clean image build, remember to install the VLSI tools with the `tools_install.sh` script:
+In case of choosing the clean image build, remember to install the OpenPDKs with the `pdks_install.sh` script:
 
 ```
 cd ${MAIN_INSTALL_FILES}
-sh ./tools_install.sh
+sh ./pdks_install.sh
 ```
