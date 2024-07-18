@@ -34,6 +34,7 @@ RUN echo $TOOLS_DOWNLOADS
 COPY ./pacman.conf /etc/
 COPY ./vimrc /root/.vimrc
 
+# Initialize pacman key, update system and install system packages
 RUN pacman-key --init
 RUN pacman -Syu --noconfirm
 RUN xargs -a system_packages.txt pacman -S --noconfirm
